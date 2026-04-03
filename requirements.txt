@@ -1,4 +1,8 @@
+streamlit
 joblib
-scikit-learn
 pandas
 numpy
+scikit-learn
+PyPDF2
+python-docx
+fpdf
