@@ -123,7 +123,7 @@ with st.sidebar:
 st.title("Fake News Detection")
 
 # Let user choose upload source
-source = st.radio("Upload source", ("Local Upload", "Google Drive Link"))
+source = st.radio("Upload source", ("Local Upload", "Google Drive Link", "Paste Text"))
 
 text = ""
 
@@ -187,7 +187,10 @@ elif source == "Google Drive Link":
                     st.subheader("File Preview")
                     st.text_area("Extracted Text", text, height=300)
 
-# Predict button (works for both local and Drive)
+elif source == "Paste Text":
+    text = st.text_area("Paste your news article here", height=300)
+
+# Predict button (works for local upload, Google Drive, and pasted text)
 if st.button("Predict"):
     if text.strip():
         text_vectorized = vectorizer.transform([text])
